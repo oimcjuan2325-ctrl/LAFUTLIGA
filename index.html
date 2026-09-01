@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAFUTLIGA Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PANTALLA DE INICIO DE SESIÓN -->
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <h2>⚽ LAFUTLIGA</h2>
+            <form id="login-form" onsubmit="iniciarSesion(event)">
+                <input type="text" id="username" placeholder="Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p id="error-msg" class="error hidden">Usuario o contraseña incorrectos</p>
+        </div>
+    </div>
+
+    <!-- PANTALLA PRINCIPAL DEL JUEGO -->
+    <div id="app-screen" class="app-container hidden">
+        
+        <!-- BARRA SUPERIOR -->
+        <header class="navbar">
+            <h1>⚽ LAFUTLIGA</h1>
+            <div class="user-info">
+                <span>👤 Usuario: <strong id="user-display">Juan</strong></span>
+                <span class="coins">🪙 Monedas: <strong id="coins-display">1000</strong></span>
+                <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
+            </div>
+        </header>
+
+        <!-- NAVEGACIÓN SECUNDARIA -->
+        <nav class="game-nav">
+            <button onclick="mostrarSeccion('partidos')">📅 Partidos</button>
+            <button onclick="mostrarSeccion('equipos')">🛡️ Equipos y Jugadores</button>
+            <button onclick="mostrarSeccion('crear-club')">🗺️ Crear Mi Club</button>
+            <button onclick="mostrarSeccion('tienda')">🛒 Tienda de Fichajes</button>
+            <button onclick="mostrarSeccion('apuestas')">🎲 Apuestas</button>
+        </nav>
+
+        <!-- CONTENIDO DINÁMICO -->
+        <main class="content-area">
+            
+            <!-- SECCIÓN PARTIDOS -->
+            <section id="sec-partidos" class="section-card">
+                <h2>📅 Próximos Partidos de LAFUTLIGA</h2>
+                <div id="partidos-list" class="grid-container">
+                    <!-- Los partidos se cargarán aquí -->
+                </div>
+            </section>
+
+            <!-- SECCIÓN EQUIPOS Y JUGADORES -->
+            <section id="sec-equipos" class="section-card hidden">
+                <h2>🛡️ Equipos de Primera División</h2>
+                <div id="equipos-list" class="grid-container">
+                    <!-- Los equipos se cargarán aquí -->
+                </div>
+            </section>
+
+            <!-- SECCIÓN CREAR CLUB -->
+            <section id="sec-crear-club" class="section-card hidden">
+                <h2>🗺️ Crear Nuevo Club</h2>
+                <p>Haz clic en el mapa de España para situar la sede de tu equipo:</p>
+                <div class="map-placeholder">
+                    📍 [Aquí irá el Mapa Interactivo de España]
+                </div>
+                <div class="club-form">
+                    <input type="text" id="club-name" placeholder="Nombre de tu club">
+                    <button onclick="crearClub()">Fundar Club</button>
+                </div>
+            </section>
+
+            <!-- SECCIÓN TIENDA / FICHAJES -->
+            <section id="sec-tienda" class="section-card hidden">
+                <h2>🛒 Mercado de Fichajes</h2>
+                <div id="tienda-list" class="grid-container">
+                    <!-- Jugadores en venta -->
+                </div>
+            </section>
+
+            <!-- SECCIÓN APUESTAS -->
+            <section id="sec-apuestas" class="section-card hidden">
+                <h2>🎲 Casa de Apuestas</h2>
+                <p>Multiplica tus monedas acertando los ganadores de la jornada:</p>
+                <div id="apuestas-list" class="grid-container">
+                    <!-- Opciones de apuesta -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
