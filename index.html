@@ -29,70 +29,71 @@
             <h1>⚽ LAFUTLIGA</h1>
             <div class="user-info">
                 <span>👤 Usuario: <strong id="user-display">Juan</strong></span>
-                <span class="coins">🪙 Monedas: <strong id="coins-display">1000</strong></span>
                 <button onclick="cerrarSesion()" class="btn-logout">Salir</button>
             </div>
         </header>
-
-        <!-- NAVEGACIÓN SECUNDARIA -->
-        <nav class="game-nav">
-            <button onclick="mostrarSeccion('partidos')">📅 Partidos</button>
-            <button onclick="mostrarSeccion('equipos')">🛡️ Equipos y Jugadores</button>
-            <button onclick="mostrarSeccion('crear-club')">🗺️ Crear Mi Club</button>
-            <button onclick="mostrarSeccion('tienda')">🛒 Tienda de Fichajes</button>
-            <button onclick="mostrarSeccion('apuestas')">🎲 Apuestas</button>
-        </nav>
 
         <!-- CONTENIDO DINÁMICO -->
         <main class="content-area">
             
             <!-- SECCIÓN PARTIDOS -->
             <section id="sec-partidos" class="section-card">
-                <h2>📅 Próximos Partidos de LAFUTLIGA</h2>
-                <div id="partidos-list" class="grid-container">
+                <h2>📅 Partidos de LAFUTLIGA 2026-2027</h2>
+                <div class="jornada-selector">
+                    <label for="select-jornada">Seleccionar Jornada: </label>
+                    <select id="select-jornada" onchange="cargarPartidosJornada(this.value)">
+                        <option value="1">Jornada 1</option>
+                        <option value="2">Jornada 2</option>
+                        <option value="3">Jornada 3</option>
+                    </select>
+                </div>
+                <div id="partidos-container" class="partidos-list">
                     <!-- Los partidos se cargarán aquí -->
                 </div>
             </section>
 
             <!-- SECCIÓN EQUIPOS Y JUGADORES -->
             <section id="sec-equipos" class="section-card hidden">
-                <h2>🛡️ Equipos de Primera División</h2>
-                <div id="equipos-list" class="grid-container">
-                    <!-- Los equipos se cargarán aquí -->
+                <h2>🛡️ Equipos y Plantillas</h2>
+                <div id="equipos-grid" class="equipos-grid">
+                    <!-- Lista de escudos de los equipos -->
                 </div>
-            </section>
 
-            <!-- SECCIÓN CREAR CLUB -->
-            <section id="sec-crear-club" class="section-card hidden">
-                <h2>🗺️ Crear Nuevo Club</h2>
-                <p>Haz clic en el mapa de España para situar la sede de tu equipo:</p>
-                <div class="map-placeholder">
-                    📍 [Aquí irá el Mapa Interactivo de España]
-                </div>
-                <div class="club-form">
-                    <input type="text" id="club-name" placeholder="Nombre de tu club">
-                    <button onclick="crearClub()">Fundar Club</button>
-                </div>
-            </section>
+                <!-- VISTA DETALLADA DEL EQUIPO SELECCIONADO -->
+                <div id="detalle-equipo" class="detalle-equipo hidden">
+                    <button onclick="volverAEquipos()" class="btn-back">⬅️ Volver a todos los equipos</button>
+                    <h3 id="equipo-nombre-titulo"></h3>
+                    
+                    <!-- FOTO Y DATOS DEL ENTRENADOR -->
+                    <div class="entrenador-card">
+                        <img id="entrenador-foto" src="" alt="Director Técnico">
+                        <div>
+                            <h4>Director Técnico</h4>
+                            <p id="entrenador-nombre"></p>
+                        </div>
+                    </div>
 
-            <!-- SECCIÓN TIENDA / FICHAJES -->
-            <section id="sec-tienda" class="section-card hidden">
-                <h2>🛒 Mercado de Fichajes</h2>
-                <div id="tienda-list" class="grid-container">
-                    <!-- Jugadores en venta -->
-                </div>
-            </section>
+                    <!-- PITCH / CAMPO DE FÚTBOL CON LA FORMACIÓN -->
+                    <h4>Estrategia (<span id="formacion-texto"></span>)</h4>
+                    <div class="campo-futbol" id="campo-futbol">
+                        <!-- Las fotos de los titulares en el campo se pintarán aquí -->
+                    </div>
 
-            <!-- SECCIÓN APUESTAS -->
-            <section id="sec-apuestas" class="section-card hidden">
-                <h2>🎲 Casa de Apuestas</h2>
-                <p>Multiplica tus monedas acertando los ganadores de la jornada:</p>
-                <div id="apuestas-list" class="grid-container">
-                    <!-- Opciones de apuesta -->
+                    <!-- SUPLENTES -->
+                    <h4>Banquillo de Suplentes</h4>
+                    <div id="suplentes-grid" class="suplentes-grid">
+                        <!-- Fotos y datos de suplentes -->
+                    </div>
                 </div>
             </section>
 
         </main>
+
+        <!-- BARRA INFERIOR DE NAVEGACIÓN -->
+        <nav class="bottom-nav">
+            <button onclick="mostrarSeccion('partidos')" id="nav-btn-partidos" class="active">📅 Partidos</button>
+            <button onclick="mostrarSeccion('equipos')" id="nav-btn-equipos">🛡️ Equipos y Jugadores</button>
+        </nav>
     </div>
 
     <script src="script.js"></script>
