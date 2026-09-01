@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAFUTLIGA Manager</title>
+    <title>LAFUTLIGA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- PANTALLA DE INICIO DE SESIÓN -->
+    <!-- LOGIN -->
     <div id="login-screen" class="login-container">
         <div class="login-box">
             <h2>⚽ LAFUTLIGA</h2>
@@ -21,10 +21,8 @@
         </div>
     </div>
 
-    <!-- PANTALLA PRINCIPAL DEL JUEGO -->
+    <!-- PANTALLA PRINCIPAL -->
     <div id="app-screen" class="app-container hidden">
-        
-        <!-- BARRA SUPERIOR -->
         <header class="navbar">
             <h1>⚽ LAFUTLIGA</h1>
             <div class="user-info">
@@ -33,67 +31,25 @@
             </div>
         </header>
 
-        <!-- CONTENIDO DINÁMICO -->
         <main class="content-area">
-            
-            <!-- SECCIÓN PARTIDOS -->
-            <section id="sec-partidos" class="section-card">
-                <h2>📅 Partidos de LAFUTLIGA 2026-2027</h2>
+            <section class="section-card">
+                <h2>📅 Resultados y Partidos de LaLiga</h2>
                 <div class="jornada-selector">
-                    <label for="select-jornada">Seleccionar Jornada: </label>
+                    <label for="select-jornada"><strong>Seleccionar Jornada:</strong> </label>
                     <select id="select-jornada" onchange="cargarPartidosJornada(this.value)">
                         <option value="1">Jornada 1</option>
                         <option value="2">Jornada 2</option>
                         <option value="3">Jornada 3</option>
+                        <option value="4">Jornada 4</option>
+                        <option value="5">Jornada 5</option>
+                        <!-- Se irán añadiendo las 38 jornadas -->
                     </select>
                 </div>
                 <div id="partidos-container" class="partidos-list">
-                    <!-- Los partidos se cargarán aquí -->
+                    <!-- Aquí se cargan los partidos -->
                 </div>
             </section>
-
-            <!-- SECCIÓN EQUIPOS Y JUGADORES -->
-            <section id="sec-equipos" class="section-card hidden">
-                <h2>🛡️ Equipos y Plantillas</h2>
-                <div id="equipos-grid" class="equipos-grid">
-                    <!-- Lista de escudos de los equipos -->
-                </div>
-
-                <!-- VISTA DETALLADA DEL EQUIPO SELECCIONADO -->
-                <div id="detalle-equipo" class="detalle-equipo hidden">
-                    <button onclick="volverAEquipos()" class="btn-back">⬅️ Volver a todos los equipos</button>
-                    <h3 id="equipo-nombre-titulo"></h3>
-                    
-                    <!-- FOTO Y DATOS DEL ENTRENADOR -->
-                    <div class="entrenador-card">
-                        <img id="entrenador-foto" src="" alt="Director Técnico">
-                        <div>
-                            <h4>Director Técnico</h4>
-                            <p id="entrenador-nombre"></p>
-                        </div>
-                    </div>
-
-                    <!-- PITCH / CAMPO DE FÚTBOL CON LA FORMACIÓN -->
-                    <h4>Estrategia (<span id="formacion-texto"></span>)</h4>
-                    <div class="campo-futbol" id="campo-futbol">
-                        <!-- Las fotos de los titulares en el campo se pintarán aquí -->
-                    </div>
-
-                    <!-- SUPLENTES -->
-                    <h4>Banquillo de Suplentes</h4>
-                    <div id="suplentes-grid" class="suplentes-grid">
-                        <!-- Fotos y datos de suplentes -->
-                    </div>
-                </div>
-            </section>
-
         </main>
-
-        <!-- BARRA INFERIOR DE NAVEGACIÓN -->
-        <nav class="bottom-nav">
-            <button onclick="mostrarSeccion('partidos')" id="nav-btn-partidos" class="active">📅 Partidos</button>
-            <button onclick="mostrarSeccion('equipos')" id="nav-btn-equipos">🛡️ Equipos y Jugadores</button>
-        </nav>
     </div>
 
     <script src="script.js"></script>
