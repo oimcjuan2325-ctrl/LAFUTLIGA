@@ -9,7 +9,6 @@ body {
     background-color: #121212;
     color: #ffffff;
     min-height: 100vh;
-    padding-bottom: 70px; /* Para que la barra inferior no tape contenido */
 }
 
 .hidden { display: none !important; }
@@ -20,16 +19,16 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: #0f2027;
 }
 
 .login-box {
-    background: rgba(0, 0, 0, 0.85);
+    background: #1e1e1e;
     padding: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     text-align: center;
     width: 320px;
+    border: 1px solid #00e676;
 }
 
 .login-box h2 { margin-bottom: 1.5rem; color: #00e676; }
@@ -57,7 +56,7 @@ body {
 
 .error { color: #ff5252; font-size: 0.85rem; margin-top: 1rem; }
 
-/* BARRA SUPERIOR */
+/* NAVBAR */
 .navbar {
     background-color: #1e1e1e;
     padding: 1rem;
@@ -77,8 +76,8 @@ body {
 }
 
 .content-area {
-    padding: 1rem;
-    max-width: 900px;
+    padding: 1.5rem;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -88,19 +87,20 @@ body {
     border-radius: 8px;
 }
 
-/* JORNADAS Y PARTIDOS */
 .jornada-selector {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 .jornada-selector select {
-    padding: 0.5rem;
+    padding: 0.6rem 1rem;
     background: #2a2a2a;
     color: white;
     border: 1px solid #00e676;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
+/* LISTA DE PARTIDOS */
 .partido-card {
     background: #2a2a2a;
     display: flex;
@@ -112,150 +112,18 @@ body {
     border-left: 4px solid #00e676;
 }
 
-/* GRID EQUIPOS */
-.equipos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.equipo-card-select {
-    background: #2a2a2a;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #333;
-}
-
-.equipo-card-select:hover {
-    border-color: #00e676;
-}
-
-.equipo-card-select img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-}
-
-/* DETALLE DEL EQUIPO Y CAMPO */
-.btn-back {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 1rem;
-}
-
-.entrenador-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: #2a2a2a;
-    padding: 0.8rem;
-    border-radius: 6px;
-    margin: 1rem 0;
-}
-
-.entrenador-card img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* CAMPO DE FÚTBOL CON JUGADORES */
-.campo-futbol {
-    background: #2e7d32;
-    border: 2px solid white;
-    border-radius: 8px;
-    height: 420px;
-    position: relative;
-    margin: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 10px 0;
-}
-
-.linea-campo {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.jugador-pos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.jugador-pos img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 2px solid #ffd700;
-    object-fit: cover;
-    background: #1e1e1e;
-}
-
-.jugador-pos span {
-    font-size: 0.75rem;
-    background: rgba(0,0,0,0.8);
-    padding: 2px 5px;
-    border-radius: 3px;
-    margin-top: 2px;
-}
-
-/* SUPLENTES */
-.suplentes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 0.8rem;
-    margin-top: 0.5rem;
-}
-
-.suplente-card {
-    background: #2a2a2a;
-    padding: 0.5rem;
-    border-radius: 6px;
-    text-align: center;
-    font-size: 0.8rem;
-}
-
-.suplente-card img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* NAVEGACIÓN INFERIOR FIXA */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #1e1e1e;
-    display: flex;
-    justify-content: space-around;
-    border-top: 2px solid #00e676;
-}
-
-.bottom-nav button {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: #888;
-    padding: 1rem;
+.equipo {
+    width: 35%;
     font-weight: bold;
-    cursor: pointer;
 }
 
-.bottom-nav button.active {
-    color: #00e676;
-    background: #2a2a2a;
+.equipo.local { text-align: right; }
+.equipo.visitante { text-align: left; }
+
+.resultado {
+    background: #00e676;
+    color: #121212;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-weight: bold;
 }
